@@ -58,8 +58,7 @@ public class AppController {
     @RequestMapping("/addUser")
     @ResponseBody
     public String addUser(ModelMap map, @RequestBody Users user) {
-        String emailVerification = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
-        String passVerification = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+       
         this.passwordEncoder = new BCryptPasswordEncoder();
         System.out.println(user.getEmail());
        
@@ -101,7 +100,7 @@ public class AppController {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (Exception e) {
-            throw new Exception("USER_DISABLED", e);
+            throw new Exception("Disabled", e);
         }
     }
 

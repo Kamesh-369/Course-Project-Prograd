@@ -20,7 +20,7 @@ public class JwtToken implements Serializable {
 
     public static final long validity = 5 * 60 * 60;
 
-    public static final String secret_Key = "hotel_Management";
+    public static final String secret_Key = "Key_Secret";
 
     public String getUsernameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
